@@ -1,318 +1,387 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#f6f5f2" />
-<title>Household Items for Sale</title>
-<style>
-  :root {
-    --bg: #f6f5f2;
-    --card: #ffffff;
-    --ink: #1d1d1f;
-    --muted: #6b6b70;
-    --accent: #c0392b;
-    --line: #e7e5e0;
-    --radius: 16px;
-    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    line-height: 1.5;
-  }
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta name="theme-color" content="#f6f5f2" />
+        <title>Household Items for Sale</title>
+        <style>
+            :root {
+                --bg: #f6f5f2;
+                --card: #ffffff;
+                --ink: #1d1d1f;
+                --muted: #6b6b70;
+                --accent: #c0392b;
+                --line: #e7e5e0;
+                --radius: 16px;
+                --shadow:
+                    0 1px 2px rgba(0, 0, 0, 0.04),
+                    0 8px 24px rgba(0, 0, 0, 0.06);
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                -webkit-text-size-adjust: 100%;
+            }
+            body {
+                margin: 0;
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                    Helvetica, Arial, sans-serif;
+                color: var(--ink);
+                background: var(--bg);
+                line-height: 1.5;
+            }
 
-  header.site {
-    text-align: center;
-    padding: 56px 20px 28px;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-  header.site h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    margin: 0 0 10px;
-    letter-spacing: -0.02em;
-  }
-  header.site p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 17px;
-  }
-  header.site .contact {
-    margin-top: 18px;
-    font-size: 15px;
-  }
-  header.site .contact a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-  }
+            header.site {
+                text-align: center;
+                padding: 56px 20px 28px;
+                max-width: 760px;
+                margin: 0 auto;
+            }
+            header.site h1 {
+                font-size: clamp(28px, 5vw, 42px);
+                margin: 0 0 10px;
+                letter-spacing: -0.02em;
+            }
+            header.site p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 17px;
+            }
+            header.site .contact {
+                margin-top: 18px;
+                font-size: 15px;
+            }
+            header.site .contact a {
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 600;
+            }
 
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 20px 80px;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-  }
+            main {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 16px 20px 80px;
+            }
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 24px;
+            }
 
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.10); }
+            .card {
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                display: flex;
+                flex-direction: column;
+                transition:
+                    transform 0.15s ease,
+                    box-shadow 0.15s ease;
+            }
+            .card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
 
-  .thumb {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    background: #ececec;
-    cursor: zoom-in;
-    overflow: hidden;
-  }
-  .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .thumb .count {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(0,0,0,.62);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 9px;
-    border-radius: 999px;
-    backdrop-filter: blur(4px);
-  }
+            .thumb {
+                position: relative;
+                aspect-ratio: 4 / 3;
+                background: #ececec;
+                cursor: zoom-in;
+                overflow: hidden;
+            }
+            .thumb img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .thumb .count {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                background: rgba(0, 0, 0, 0.62);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 3px 9px;
+                border-radius: 999px;
+                backdrop-filter: blur(4px);
+            }
 
-  .body {
-    padding: 16px 18px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-  }
-  .body h2 {
-    font-size: 18px;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-  .body .desc {
-    color: var(--muted);
-    font-size: 14px;
-    margin: 0;
-    flex: 1;
-  }
-  .price {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .price.tbd { color: var(--muted); font-weight: 600; font-size: 16px; }
+            .body {
+                padding: 16px 18px 18px;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                flex: 1;
+            }
+            .body h2 {
+                font-size: 18px;
+                margin: 0;
+                letter-spacing: -0.01em;
+            }
+            .body .desc {
+                color: var(--muted);
+                font-size: 14px;
+                margin: 0;
+                flex: 1;
+            }
+            .price {
+                margin-top: 10px;
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--accent);
+            }
+            .price.tbd {
+                color: var(--muted);
+                font-weight: 600;
+                font-size: 16px;
+            }
 
-  footer.site {
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-    padding: 0 20px 50px;
-  }
+            footer.site {
+                text-align: center;
+                color: var(--muted);
+                font-size: 13px;
+                padding: 0 20px 50px;
+            }
 
-  /* Lightbox */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.92);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    padding: 24px;
-  }
-  .lightbox.open { display: flex; }
-  .lightbox img {
-    max-width: 100%;
-    max-height: 92vh;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  .lightbox .lb-btn {
-    position: absolute;
-    background: rgba(255,255,255,.12);
-    color: #fff;
-    border: none;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .15s;
-  }
-  .lightbox .lb-btn:hover { background: rgba(255,255,255,.25); }
-  .lb-close { top: max(16px, env(safe-area-inset-top)); right: 16px; }
-  .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
-  .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+            /* Lightbox */
+            .lightbox {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.92);
+                display: none;
+                align-items: center;
+                justify-content: center;
+                z-index: 100;
+                padding: 24px;
+            }
+            .lightbox.open {
+                display: flex;
+            }
+            .lightbox img {
+                max-width: 100%;
+                max-height: 92vh;
+                object-fit: contain;
+                border-radius: 8px;
+            }
+            .lightbox .lb-btn {
+                position: absolute;
+                background: rgba(255, 255, 255, 0.12);
+                color: #fff;
+                border: none;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                font-size: 24px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s;
+            }
+            .lightbox .lb-btn:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
+            .lb-close {
+                top: max(16px, env(safe-area-inset-top));
+                right: 16px;
+            }
+            .lb-prev {
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .lb-next {
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
 
-  /* ---- Mobile ---- */
-  @media (max-width: 640px) {
-    header.site { padding: 36px 18px 18px; }
-    header.site p { font-size: 16px; }
-    main { padding: 12px 14px 56px; }
-    .grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    .body { padding: 14px 16px 16px; }
-    .body h2 { font-size: 17px; }
-    /* Bigger, thumb-friendly lightbox controls */
-    .lightbox { padding: 12px; }
-    .lightbox .lb-btn { width: 52px; height: 52px; font-size: 26px; }
-    .lb-prev { left: 8px; }
-    .lb-next { right: 8px; }
-    .lb-close { right: 8px; }
-  }
+            /* ---- Mobile ---- */
+            @media (max-width: 640px) {
+                header.site {
+                    padding: 36px 18px 18px;
+                }
+                header.site p {
+                    font-size: 16px;
+                }
+                main {
+                    padding: 12px 14px 56px;
+                }
+                .grid {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                }
+                .body {
+                    padding: 14px 16px 16px;
+                }
+                .body h2 {
+                    font-size: 17px;
+                }
+                /* Bigger, thumb-friendly lightbox controls */
+                .lightbox {
+                    padding: 12px;
+                }
+                .lightbox .lb-btn {
+                    width: 52px;
+                    height: 52px;
+                    font-size: 26px;
+                }
+                .lb-prev {
+                    left: 8px;
+                }
+                .lb-next {
+                    right: 8px;
+                }
+                .lb-close {
+                    right: 8px;
+                }
+            }
 
-  /* Two columns on roomy phones / small tablets in portrait */
-  @media (min-width: 641px) and (max-width: 820px) {
-    .grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  }
-</style>
-</head>
-<body>
+            /* Two columns on roomy phones / small tablets in portrait */
+            @media (min-width: 641px) and (max-width: 820px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 18px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="site">
+            <h1>Household Items for Sale</h1>
+            <p>
+                Gently used items in good working condition. Tap any photo to
+                view it larger.
+            </p>
+        </header>
 
-<header class="site">
-  <h1>Household Items for Sale</h1>
-  <p>Gently used items in good working condition. Tap any photo to view it larger.</p>
-  <p class="contact">Interested? Contact: <a href="mailto:vijay@thoughtvine.nl">vijay@thoughtvine.nl</a></p>
-</header>
+        <main>
+            <div class="grid" id="grid"></div>
+        </main>
 
-<main>
-  <div class="grid" id="grid"></div>
-</main>
+        <footer class="site">
+            <p>Prices are negotiable. Items available for local pickup.</p>
+        </footer>
 
-<footer class="site">
-  <p>Prices are negotiable. Items available for local pickup.</p>
-</footer>
+        <div class="lightbox" id="lightbox">
+            <button class="lb-btn lb-close" id="lbClose" aria-label="Close">
+                &times;
+            </button>
+            <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">
+                &#8249;
+            </button>
+            <img id="lbImg" src="" alt="" />
+            <button class="lb-btn lb-next" id="lbNext" aria-label="Next">
+                &#8250;
+            </button>
+        </div>
 
-<div class="lightbox" id="lightbox">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">&times;</button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
-  <img id="lbImg" src="" alt="" />
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Next">&#8250;</button>
-</div>
-
-<script>
-/* =======================================================================
+        <script>
+            /* =======================================================================
    EDIT YOUR ITEMS HERE
    - name:  what the item is called
    - price: e.g. "₹5,000". Leave as "" to show "Price on request".
    - desc:  a short description (condition, brand, size, etc.)
    - images: one or more photo file names from the images/ folder
    ======================================================================= */
-const ITEMS = [
-  {
-    name: "LG Front-Load Washing Machine (6 kg)",
-    price: "",
-    desc: "Inverter Direct Drive, 6 kg capacity. Fully working.",
-    images: ["images/IMG_1950.jpg", "images/IMG_1967.jpg"]
-  },
-  {
-    name: "Bosch Dishwasher",
-    price: "",
-    desc: "Free-standing Bosch dishwasher with multiple wash programs.",
-    images: ["images/IMG_1966.jpg"]
-  },
-  {
-    name: "Voltas Split AC (White)",
-    price: "",
-    desc: "Voltas inverter split AC indoor unit, white finish.",
-    images: ["images/IMG_1957.jpg"]
-  },
-  {
-    name: "Voltas Split AC (Champagne)",
-    price: "",
-    desc: "Voltas split AC indoor unit, champagne / gold finish.",
-    images: ["images/IMG_1964.jpg"]
-  },
-  {
-    name: "Inverter / UPS",
-    price: "",
-    desc: "Home inverter with battery backup. In working condition.",
-    images: ["images/IMG_1952.jpg"]
-  },
-  {
-    name: "Two-Burner Gas Stove",
-    price: "",
-    desc: "Stainless steel two-burner LPG cooktop.",
-    images: ["images/IMG_1960.jpg"]
-  },
-  {
-    name: "Pink Storage Cabinet",
-    price: "",
-    desc: "Two-door wooden storage cabinet with etched glass panel.",
-    images: ["images/IMG_1956.jpg", "images/IMG_1965.jpg"]
-  },
-  {
-    name: "Dining Chairs (Set of 4)",
-    price: "",
-    desc: "Dark wood chairs with patterned upholstered seats and backs.",
-    images: ["images/IMG_1963.jpg"]
-  },
-  {
-    name: "Cane Swing Chair",
-    price: "",
-    desc: "Hanging cane / rattan round swing chair with cushion.",
-    images: ["images/IMG_1962.jpg"]
-  },
-  {
-    name: "Plastic & Cane Chairs",
-    price: "",
-    desc: "Assorted plastic chairs and a cane folding chair.",
-    images: ["images/IMG_1959.jpg"]
-  },
-  {
-    name: "Bed with Mattress",
-    price: "",
-    desc: "Bed frame with mattress and bedding.",
-    images: ["images/IMG_1958.jpg"]
-  }
-];
+            const ITEMS = [
+                {
+                    name: "LG Front-Load Washing Machine (6 kg)",
+                    price: "10,000",
+                    desc: "Inverter Direct Drive, 6 kg capacity. Fully working.",
+                    images: ["images/IMG_1950.jpg", "images/IMG_1967.jpg"],
+                },
+                {
+                    name: "Bosch Dishwasher",
+                    price: "20,000",
+                    desc: "Free-standing Bosch dishwasher with multiple wash programs.",
+                    images: ["images/IMG_1966.jpg"],
+                },
+                {
+                    name: "Voltas Split AC (White)",
+                    price: "20,000",
+                    desc: "Voltas inverter split AC 2 Ton.",
+                    images: ["images/IMG_1957.jpg"],
+                },
+                {
+                    name: "Voltas Split AC (Champagne)",
+                    price: "10,000",
+                    desc: "Voltas split AC 1 Ton.",
+                    images: ["images/IMG_1964.jpg"],
+                },
+                {
+                    name: "Inverter / UPS",
+                    price: "20,000",
+                    desc: "Home inverter with battery backup. In working condition.",
+                    images: ["images/IMG_1952.jpg"],
+                },
+                {
+                    name: "Two-Burner Gas Stove + Gas Cylinder",
+                    price: "1000",
+                    desc: "Stainless steel two-burner LPG cooktop.",
+                    images: ["images/IMG_1960.jpg"],
+                },
+                {
+                    name: "Pink Storage Cabinet",
+                    price: "4500",
+                    desc: "Two-door steel storage cabinet with etched glass panel.",
+                    images: ["images/IMG_1956.jpg", "images/IMG_1965.jpg"],
+                },
+                {
+                    name: "Dining Chairs (Set of 4)",
+                    price: "1200",
+                    desc: "Dark wood chairs with patterned upholstered seats and backs.",
+                    images: ["images/IMG_1963.jpg"],
+                },
+                {
+                    name: "Cane Swing Chair",
+                    price: "1500",
+                    desc: "Hanging cane / rattan round swing chair with cushion.",
+                    images: ["images/IMG_1962.jpg"],
+                },
+                {
+                    name: "Plastic Chairs",
+                    price: "750",
+                    desc: "Assorted plastic chairs.",
+                    images: ["images/IMG_1959.jpg"],
+                },
+                {
+                    name: "Bed with Mattress + Foldable Bed",
+                    price: "1200",
+                    desc: "Bed frame with mattress and bedding.",
+                    images: ["images/IMG_1958.jpg"],
+                },
+            ];
 
-/* ---- Rendering (no need to edit below) ---- */
-const grid = document.getElementById("grid");
+            /* ---- Rendering (no need to edit below) ---- */
+            const grid = document.getElementById("grid");
 
-ITEMS.forEach((item) => {
-  const card = document.createElement("article");
-  card.className = "card";
+            ITEMS.forEach((item) => {
+                const card = document.createElement("article");
+                card.className = "card";
 
-  const priceText = item.price && item.price.trim()
-    ? `<div class="price">${item.price}</div>`
-    : `<div class="price tbd">Price on request</div>`;
+                const priceText =
+                    item.price && item.price.trim()
+                        ? `<div class="price">${item.price}</div>`
+                        : `<div class="price tbd">Price on request</div>`;
 
-  const countBadge = item.images.length > 1
-    ? `<span class="count">${item.images.length} photos</span>`
-    : "";
+                const countBadge =
+                    item.images.length > 1
+                        ? `<span class="count">${item.images.length} photos</span>`
+                        : "";
 
-  card.innerHTML = `
+                card.innerHTML = `
     <div class="thumb" data-images='${JSON.stringify(item.images)}'>
       <img src="${item.images[0]}" alt="${item.name}" loading="lazy" />
       ${countBadge}
@@ -323,61 +392,90 @@ ITEMS.forEach((item) => {
       ${priceText}
     </div>
   `;
-  grid.appendChild(card);
-});
+                grid.appendChild(card);
+            });
 
-/* ---- Lightbox ---- */
-const lightbox = document.getElementById("lightbox");
-const lbImg = document.getElementById("lbImg");
-let currentSet = [];
-let currentIdx = 0;
+            /* ---- Lightbox ---- */
+            const lightbox = document.getElementById("lightbox");
+            const lbImg = document.getElementById("lbImg");
+            let currentSet = [];
+            let currentIdx = 0;
 
-function showImg() {
-  lbImg.src = currentSet[currentIdx];
-}
-function openLightbox(images, idx) {
-  currentSet = images;
-  currentIdx = idx || 0;
-  showImg();
-  lightbox.classList.add("open");
-}
-function closeLightbox() { lightbox.classList.remove("open"); }
-function nextImg() { currentIdx = (currentIdx + 1) % currentSet.length; showImg(); }
-function prevImg() { currentIdx = (currentIdx - 1 + currentSet.length) % currentSet.length; showImg(); }
+            function showImg() {
+                lbImg.src = currentSet[currentIdx];
+            }
+            function openLightbox(images, idx) {
+                currentSet = images;
+                currentIdx = idx || 0;
+                showImg();
+                lightbox.classList.add("open");
+            }
+            function closeLightbox() {
+                lightbox.classList.remove("open");
+            }
+            function nextImg() {
+                currentIdx = (currentIdx + 1) % currentSet.length;
+                showImg();
+            }
+            function prevImg() {
+                currentIdx =
+                    (currentIdx - 1 + currentSet.length) % currentSet.length;
+                showImg();
+            }
 
-document.querySelectorAll(".thumb").forEach((t) => {
-  t.addEventListener("click", () => {
-    openLightbox(JSON.parse(t.dataset.images), 0);
-  });
-});
+            document.querySelectorAll(".thumb").forEach((t) => {
+                t.addEventListener("click", () => {
+                    openLightbox(JSON.parse(t.dataset.images), 0);
+                });
+            });
 
-document.getElementById("lbClose").addEventListener("click", closeLightbox);
-document.getElementById("lbNext").addEventListener("click", (e) => { e.stopPropagation(); nextImg(); });
-document.getElementById("lbPrev").addEventListener("click", (e) => { e.stopPropagation(); prevImg(); });
-lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", (e) => {
-  if (!lightbox.classList.contains("open")) return;
-  if (e.key === "Escape") closeLightbox();
-  if (e.key === "ArrowRight") nextImg();
-  if (e.key === "ArrowLeft") prevImg();
-});
+            document
+                .getElementById("lbClose")
+                .addEventListener("click", closeLightbox);
+            document.getElementById("lbNext").addEventListener("click", (e) => {
+                e.stopPropagation();
+                nextImg();
+            });
+            document.getElementById("lbPrev").addEventListener("click", (e) => {
+                e.stopPropagation();
+                prevImg();
+            });
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener("keydown", (e) => {
+                if (!lightbox.classList.contains("open")) return;
+                if (e.key === "Escape") closeLightbox();
+                if (e.key === "ArrowRight") nextImg();
+                if (e.key === "ArrowLeft") prevImg();
+            });
 
-/* Swipe to change / dismiss on touch devices */
-let touchStartX = 0, touchStartY = 0;
-lightbox.addEventListener("touchstart", (e) => {
-  touchStartX = e.changedTouches[0].clientX;
-  touchStartY = e.changedTouches[0].clientY;
-}, { passive: true });
-lightbox.addEventListener("touchend", (e) => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-    if (currentSet.length > 1) { dx < 0 ? nextImg() : prevImg(); }
-  } else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) {
-    closeLightbox();
-  }
-}, { passive: true });
-</script>
-
-</body>
+            /* Swipe to change / dismiss on touch devices */
+            let touchStartX = 0,
+                touchStartY = 0;
+            lightbox.addEventListener(
+                "touchstart",
+                (e) => {
+                    touchStartX = e.changedTouches[0].clientX;
+                    touchStartY = e.changedTouches[0].clientY;
+                },
+                { passive: true },
+            );
+            lightbox.addEventListener(
+                "touchend",
+                (e) => {
+                    const dx = e.changedTouches[0].clientX - touchStartX;
+                    const dy = e.changedTouches[0].clientY - touchStartY;
+                    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+                        if (currentSet.length > 1) {
+                            dx < 0 ? nextImg() : prevImg();
+                        }
+                    } else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) {
+                        closeLightbox();
+                    }
+                },
+                { passive: true },
+            );
+        </script>
+    </body>
 </html>
